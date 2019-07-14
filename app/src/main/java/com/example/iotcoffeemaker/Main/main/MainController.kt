@@ -24,7 +24,7 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
 
             override fun onFailure(call: Call<Int?>?,
                                    t: Throwable?) {
-                mView?.showTextMessage("nao deu pra fazer o cafe")
+                mView?.showTextMessage( t?.message ?: "Nao ha mensagem" )
             }
         })
     }
@@ -38,7 +38,7 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
 
             override fun onFailure(call: Call<Int?>?,
                                    t: Throwable?) {
-                mView?.showTextMessage("nao deu pra medir a agua")
+                mView?.showTextMessage( t.toString() )
             }
         })
     }
