@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">IoT CoffeeMaker</string>
+    <string name="action_settings">Settings</string>
+
+
+
+    <!--MAIN ACTIVITY-->
+    <string name="make_coffee_action">Fazer Café</string>
+    <string name="check_water_level_action">Checar Nível de Água</string>
+</resources>
