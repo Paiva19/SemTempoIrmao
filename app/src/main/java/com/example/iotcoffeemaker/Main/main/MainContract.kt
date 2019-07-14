@@ -1,4 +1,4 @@
-package com.example.iotcoffeemaker.Main
+package com.example.iotcoffeemaker.Main.main
 
 interface MainContract {
     interface MainActivity {
@@ -8,6 +8,7 @@ interface MainContract {
     interface MainPresenter {
         fun onMakeCoffeeClick()
         fun onCheckWaterLevelClick()
+        fun onDestroy()
     }
 
 }
