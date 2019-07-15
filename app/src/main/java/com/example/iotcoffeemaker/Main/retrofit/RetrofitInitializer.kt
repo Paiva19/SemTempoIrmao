@@ -4,7 +4,7 @@ import com.example.iotcoffeemaker.Main.retrofit.service.CoffeeService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "http://192.168.0.7:8080/"
+private const val BASE_URL = "http://10.144.217.208:8080/"
 
 class RetrofitInitializer {
 
