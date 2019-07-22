@@ -4,7 +4,7 @@ import com.example.iotcoffeemaker.Main.retrofit.service.CoffeeService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "http://10.144.217.208:8080/"
+private const val BASE_URL = "https://lazy-otter-33.localtunnel.me/"//"http://10.144.217.208:8080/"
 
 class RetrofitInitializer {
 

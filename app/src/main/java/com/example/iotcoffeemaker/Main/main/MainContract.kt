@@ -8,6 +8,7 @@ interface MainContract {
     interface MainPresenter {
         fun onMakeCoffeeClick()
         fun onCheckWaterLevelClick()
+        fun onLogoClick()
         fun onDestroy()
     }
 

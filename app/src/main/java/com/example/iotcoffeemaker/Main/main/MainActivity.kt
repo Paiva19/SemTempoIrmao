@@ -18,6 +18,9 @@ class MainActivity : AppCompatActivity(), MainContract.MainActivity {
         makeCoffeeBtn.setOnClickListener { presenter.onMakeCoffeeClick() }
 
         checkWaterBtn.setOnClickListener { presenter.onCheckWaterLevelClick() }
+
+        mainIconIv.setOnClickListener { presenter.onLogoClick()}
+
     }
 
     override fun onDestroy() {
@@ -32,6 +35,7 @@ class MainActivity : AppCompatActivity(), MainContract.MainActivity {
     }
     override fun hideTextMessage() {
         buttonClickInformationTv.visibility = TextView.GONE
+        buttonClickInformationTv.text = ""
     }
 
 
