@@ -38,5 +38,11 @@ class MainActivity : AppCompatActivity(), MainContract.MainActivity {
         buttonClickInformationTv.text = ""
     }
 
+    override fun setButtonsEnable(enable: Boolean) {
+        checkWaterBtn.isEnabled = enable
+        makeCoffeeBtn.isEnabled = enable
+        mainIconIv.isEnabled = enable
+    }
+
 
 }

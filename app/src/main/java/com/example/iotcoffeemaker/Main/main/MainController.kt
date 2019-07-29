@@ -22,9 +22,11 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
     }
 
     override fun onMakeCoffeeClick() {
+        mView?.setButtonsEnable(false)
         mService.coffee(56246).enqueue(object: Callback<CoffeeModel?> {
             override fun onResponse(call: Call<CoffeeModel?>?,
                                     response: Response<CoffeeModel?>?) {
+                mView?.setButtonsEnable(true)
                 if(response?.code() == 200)
                     mView?.showTextMessage("Fazendo seu café, pois tudo nessa casa aqui sou eu NINGUÉM NUNCA FAZ NADA QUERO VER COMO VAI SER DEPOIS QUE EU MORRER")
                 else
@@ -33,16 +35,19 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
 
             override fun onFailure(call: Call<CoffeeModel?>?,
                                    t: Throwable?) {
+                mView?.setButtonsEnable(true)
                 mView?.showTextMessage( t?.message ?: "Erro desconhecido" )
             }
         })
     }
 
     override fun onCheckWaterLevelClick() {
+        mView?.setButtonsEnable(false)
         mService.waterLevel(56246).enqueue(object: Callback<String?> {
             override fun onResponse(call: Call<String?>?,
                                     response: Response<String?>?) {
 
+                mView?.setButtonsEnable(true)
                 var jsonBody = Gson().toJson(response?.body())
                 if(response?.code() == 200)
                     mView?.showTextMessage("Fazendo seu café, pois tudo nessa casa aqui sou eu NINGUÉM NUNCA FAZ NADA QUERO VER COMO VAI SER DEPOIS QUE EU MORRER")
@@ -52,6 +57,7 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
 
             override fun onFailure(call: Call<String?>?,
                                    t: Throwable?) {
+                mView?.setButtonsEnable(true)
                 mView?.showTextMessage( t?.message ?: "Erro desconhecido" )
             }
         })
