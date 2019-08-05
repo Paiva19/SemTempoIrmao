@@ -5,6 +5,7 @@ interface MainContract {
         fun showTextMessage(toastMsg: String)
         fun hideTextMessage()
         fun setButtonsEnable(enable: Boolean)
+        fun getCoffeePotId(): Int
     }
     interface MainPresenter {
         fun onMakeCoffeeClick()
