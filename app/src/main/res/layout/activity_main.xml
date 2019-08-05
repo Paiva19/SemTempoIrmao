@@ -18,9 +18,10 @@
 
     <ScrollView
             app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp">
         <LinearLayout
                 android:orientation="vertical"
                 android:gravity="top"
@@ -40,6 +41,19 @@
                     android:layout_marginTop="@dimen/vertical_margin_large"
                     android:layout_marginBottom="@dimen/vertical_margin_large"/>
 
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/makeCoffeeBtn"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/horizontal_margin_small"
+                    android:layout_marginEnd="@dimen/horizontal_margin_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/make_coffee_action"
+                    android:gravity="center"/>
             <LinearLayout
                     android:layout_gravity="center"
                     android:gravity="center"
@@ -53,25 +67,27 @@
                     android:paddingStart="@dimen/horizontal_margin_small"
                     android:paddingEnd="@dimen/horizontal_margin_small">
 
-                <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/makeCoffeeBtn"
-                        app:layout_constraintTop_toBottomOf="@id/toolbar"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_marginEnd="@dimen/horizontal_margin_small"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/make_coffee_action"
-                        android:gravity="center"/>
 
                 <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/checkWaterBtn"
                         app:layout_constraintTop_toBottomOf="@id/makeCoffeeBtn"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="@string/check_water_level_action"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/ChangeFilterBtn"
+                        app:layout_constraintTop_toBottomOf="@id/toolbar"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="@dimen/horizontal_margin_small"
+                        android:layout_marginEnd="@dimen/horizontal_margin_small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/reset_filter_action"
+                        android:gravity="center"/>
             </LinearLayout>
 
             <TextView
@@ -81,13 +97,23 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:textStyle="bold"
                     android:textSize="@dimen/text_size_large"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     android:layout_marginTop="@dimen/vertical_margin_medium"
                     android:layout_marginStart="@dimen/horizontal_margin_medium"
                     android:layout_marginEnd="@dimen/horizontal_margin_medium"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/clearMsgBtn"
+                    app:layout_constraintTop_toBottomOf="@id/buttonClickInformationTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/clear_message_action"/>
 
         </LinearLayout>
 

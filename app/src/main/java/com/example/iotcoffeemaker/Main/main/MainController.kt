@@ -17,7 +17,7 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
        mView = null
     }
 
-    override fun onLogoClick() {
+    override fun onClearMessageClick() {
         mView?.hideTextMessage()
     }
 
@@ -41,6 +41,28 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
         })
     }
 
+
+    override fun onChangeFilterClick() {
+        mView?.setButtonsEnable(false)
+        mService.changeFilter(56246).enqueue(object: Callback<String?> {
+            override fun onResponse(call: Call<String?>?,
+                                    response: Response<String?>?) {
+
+                mView?.setButtonsEnable(true)
+                var jsonBody = Gson().toJson(response?.body())
+                if(response?.code() == 200)
+                    mView?.showTextMessage("Confirmado o filtro trocado! :)")
+                else
+                    mView?.showTextMessage("ERRO \n" + response?.message())
+            }
+
+            override fun onFailure(call: Call<String?>?,
+                                   t: Throwable?) {
+                mView?.setButtonsEnable(true)
+                mView?.showTextMessage( t?.message ?: "Erro desconhecido" )
+            }
+        })
+    }
     override fun onCheckWaterLevelClick() {
         mView?.setButtonsEnable(false)
         mService.waterLevel(56246).enqueue(object: Callback<String?> {

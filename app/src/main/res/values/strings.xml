@@ -7,4 +7,6 @@
     <!--MAIN ACTIVITY-->
     <string name="make_coffee_action">Fazer Café</string>
     <string name="check_water_level_action">Checar Nível de Água</string>
+    <string name="reset_filter_action">Troca o filtro</string>
+    <string name="clear_message_action">Limpar mensagem</string>
 </resources>

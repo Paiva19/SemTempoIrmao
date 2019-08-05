@@ -11,4 +11,8 @@ interface CoffeeService {
 
     @GET("waterLevel")
     fun waterLevel(@Query("coffeeMaker_ID") coffeeMaker_ID: Int): Call<String>
+
+
+    @GET("filter")
+    fun changeFilter(@Query("coffeeMaker_ID") coffeeMaker_ID: Int): Call<String>
 }

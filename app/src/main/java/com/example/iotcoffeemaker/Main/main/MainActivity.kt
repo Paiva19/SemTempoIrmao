@@ -1,6 +1,7 @@
 package com.example.iotcoffeemaker.Main.main
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +20,9 @@ class MainActivity : AppCompatActivity(), MainContract.MainActivity {
 
         checkWaterBtn.setOnClickListener { presenter.onCheckWaterLevelClick() }
 
-        mainIconIv.setOnClickListener { presenter.onLogoClick()}
+        ChangeFilterBtn.setOnClickListener { presenter.onChangeFilterClick() }
+
+        clearMsgBtn.setOnClickListener { presenter.onClearMessageClick()}
 
     }
 
@@ -29,11 +32,13 @@ class MainActivity : AppCompatActivity(), MainContract.MainActivity {
     }
 
     override fun showTextMessage(toastMsg: String) {
+        clearMsgBtn.visibility = Button.VISIBLE
         buttonClickInformationTv.visibility = TextView.VISIBLE
         buttonClickInformationTv.text = toastMsg
         Toast.makeText(applicationContext, toastMsg, Toast.LENGTH_LONG ).show()
     }
     override fun hideTextMessage() {
+        clearMsgBtn.visibility = Button.GONE
         buttonClickInformationTv.visibility = TextView.GONE
         buttonClickInformationTv.text = ""
     }
@@ -41,7 +46,7 @@ class MainActivity : AppCompatActivity(), MainContract.MainActivity {
     override fun setButtonsEnable(enable: Boolean) {
         checkWaterBtn.isEnabled = enable
         makeCoffeeBtn.isEnabled = enable
-        mainIconIv.isEnabled = enable
+        ChangeFilterBtn.isEnabled = enable
     }
 
 
