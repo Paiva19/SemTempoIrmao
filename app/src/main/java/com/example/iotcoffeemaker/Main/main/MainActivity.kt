@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.iotcoffeemaker.R
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity(), MainContract.MainActivity {
 
@@ -50,4 +51,12 @@ class MainActivity : AppCompatActivity(), MainContract.MainActivity {
     }
 
 
+    override fun getCoffeePotId(): Int {
+        coffeeIdEt.clearFocus()
+        return try {
+            coffeeIdEt.text.toString().toInt()
+        } catch (e: Exception){
+            0
+        }
+    }
 }

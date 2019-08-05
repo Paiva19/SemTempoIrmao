@@ -40,6 +40,33 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="@dimen/vertical_margin_large"
                     android:layout_marginBottom="@dimen/vertical_margin_large"/>
+<LinearLayout
+        android:layout_marginTop="@dimen/vertical_margin_small"
+        android:layout_marginBottom="@dimen/vertical_margin_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_medium"
+        android:layout_marginEnd="@dimen/horizontal_margin_medium">
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/coffee_pot_id"
+            android:textColor="@color/colorBlack"
+    android:gravity="center"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/coffeeIdEt"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:textColorHighlight="@color/colorPrimary"
+            android:textColor="@color/colorBlack"
+            android:maxLength="5"
+            android:layout_height="wrap_content"/>
+</LinearLayout>
+
 
 
 
