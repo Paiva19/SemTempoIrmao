@@ -10,7 +10,7 @@ import retrofit2.Response
 
 
 class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
-
+    var coffeePotId = 12
     val mService = RetrofitInitializer().coffeeService()
 
     override fun onDestroy() {
@@ -23,12 +23,13 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
 
     override fun onMakeCoffeeClick() {
         mView?.setButtonsEnable(false)
-        mService.coffee(12).enqueue(object: Callback<CoffeeModel?> {
+        mService.coffee(coffeePotId).enqueue(object: Callback<CoffeeModel?> {
             override fun onResponse(call: Call<CoffeeModel?>?,
                                     response: Response<CoffeeModel?>?) {
                 mView?.setButtonsEnable(true)
+                val jsonBody = Gson().toJson(response?.body())
                 if(response?.code() == 200)
-                    mView?.showTextMessage("Fazendo seu café, pois tudo nessa casa aqui sou eu NINGUÉM NUNCA FAZ NADA QUERO VER COMO VAI SER DEPOIS QUE EU MORRER")
+                    mView?.showTextMessage(jsonBody ?: "Fazendo seu café, pois tudo nessa casa aqui sou eu NINGUÉM NUNCA FAZ NADA QUERO VER COMO VAI SER DEPOIS QUE EU MORRER")
                 else
                     mView?.showTextMessage("ERRO \n" + response?.message())
             }
@@ -44,14 +45,14 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
 
     override fun onChangeFilterClick() {
         mView?.setButtonsEnable(false)
-        mService.changeFilter(12).enqueue(object: Callback<String?> {
+        mService.changeFilter(coffeePotId).enqueue(object: Callback<String?> {
             override fun onResponse(call: Call<String?>?,
                                     response: Response<String?>?) {
 
                 mView?.setButtonsEnable(true)
-                var jsonBody = Gson().toJson(response?.body())
+                val jsonBody = Gson().toJson(response?.body())
                 if(response?.code() == 200)
-                    mView?.showTextMessage("Confirmado o filtro trocado! :)")
+                    mView?.showTextMessage(jsonBody ?: "Confirmado o filtro trocado! :)")
                 else
                     mView?.showTextMessage("ERRO \n" + response?.message())
             }
@@ -65,14 +66,14 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
     }
     override fun onCheckWaterLevelClick() {
         mView?.setButtonsEnable(false)
-        mService.waterLevel(12).enqueue(object: Callback<String?> {
+        mService.waterLevel(coffeePotId).enqueue(object: Callback<String?> {
             override fun onResponse(call: Call<String?>?,
                                     response: Response<String?>?) {
 
                 mView?.setButtonsEnable(true)
-                var jsonBody = Gson().toJson(response?.body())
+                val jsonBody = Gson().toJson(response?.body())
                 if(response?.code() == 200)
-                    mView?.showTextMessage("Fazendo seu café, pois tudo nessa casa aqui sou eu NINGUÉM NUNCA FAZ NADA QUERO VER COMO VAI SER DEPOIS QUE EU MORRER")
+                    mView?.showTextMessage(jsonBody ?: "Fazendo seu café, pois tudo nessa casa aqui sou eu NINGUÉM NUNCA FAZ NADA QUERO VER COMO VAI SER DEPOIS QUE EU MORRER")
                 else
                     mView?.showTextMessage("ERRO \n" + response?.message())
             }
