@@ -8,7 +8,8 @@ Please do not use for criminal purposes
 
 This project was made by
 
-Lucas Paiva
-João Frezzato
+ - Lucas Paiva
+
+ - João Frezzato
 
 I wish I knew how to make a good README.md file
