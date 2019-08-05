@@ -3,6 +3,8 @@
     <string name="action_settings">Settings</string>
 
 
+    <string name="coffee_pot_id">12</string>
+
 
     <!--MAIN ACTIVITY-->
     <string name="make_coffee_action">Fazer Café</string>

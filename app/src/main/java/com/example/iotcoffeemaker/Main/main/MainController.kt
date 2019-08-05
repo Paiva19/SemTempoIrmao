@@ -23,7 +23,7 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
 
     override fun onMakeCoffeeClick() {
         mView?.setButtonsEnable(false)
-        mService.coffee(56246).enqueue(object: Callback<CoffeeModel?> {
+        mService.coffee(12).enqueue(object: Callback<CoffeeModel?> {
             override fun onResponse(call: Call<CoffeeModel?>?,
                                     response: Response<CoffeeModel?>?) {
                 mView?.setButtonsEnable(true)
@@ -44,7 +44,7 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
 
     override fun onChangeFilterClick() {
         mView?.setButtonsEnable(false)
-        mService.changeFilter(56246).enqueue(object: Callback<String?> {
+        mService.changeFilter(12).enqueue(object: Callback<String?> {
             override fun onResponse(call: Call<String?>?,
                                     response: Response<String?>?) {
 
@@ -65,7 +65,7 @@ class MainPresenter(var mView: MainActivity?) : MainContract.MainPresenter {
     }
     override fun onCheckWaterLevelClick() {
         mView?.setButtonsEnable(false)
-        mService.waterLevel(56246).enqueue(object: Callback<String?> {
+        mService.waterLevel(12).enqueue(object: Callback<String?> {
             override fun onResponse(call: Call<String?>?,
                                     response: Response<String?>?) {
 
