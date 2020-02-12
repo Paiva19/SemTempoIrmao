@@ -1,18 +1,17 @@
 package com.example.iotcoffeemaker.Main.main
 
+import com.example.iotcoffeemaker.Main.models.Event
+
 interface MainContract {
     interface MainActivity {
-        fun showTextMessage(toastMsg: String)
-        fun hideTextMessage()
-        fun setButtonsEnable(enable: Boolean)
-        fun getCoffeePotId(): Int
+        fun setUserName(name: String?)
+        fun setList(list: Array<Event>)
+        fun openEventDetailActivity(event: Event)
     }
     interface MainPresenter {
-        fun onMakeCoffeeClick()
-        fun onCheckWaterLevelClick()
-        fun onClearMessageClick()
-        fun onChangeFilterClick()
         fun onDestroy()
+        fun getEvents()
+        fun onSelectEvent(event: Event)
     }
 
 }

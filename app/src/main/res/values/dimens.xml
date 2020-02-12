@@ -2,6 +2,7 @@
 
     <!--MARGINS-->
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="minimal_padding">4dp</dimen>
     <dimen name="vertical_margin_small">16dp</dimen>
     <dimen name="vertical_margin_medium">32dp</dimen>
     <dimen name="vertical_margin_large">64dp</dimen>
@@ -14,8 +15,11 @@
     <dimen name="text_size_small">8sp</dimen>
     <dimen name="text_size_medium">16sp</dimen>
     <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_x_large">48sp</dimen>
 
     <dimen name="logo_size">128dp</dimen>
     <dimen name="logo_padding">24dp</dimen>
+
+    <dimen name="roundness_partial">8dp</dimen>
 
 </resources>

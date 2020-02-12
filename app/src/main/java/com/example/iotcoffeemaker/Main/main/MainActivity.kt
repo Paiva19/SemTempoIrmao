@@ -5,26 +5,25 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.iotcoffeemaker.Main.models.Event
 import com.example.iotcoffeemaker.R
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
+import java.util.*
 
 class MainActivity : AppCompatActivity(), MainContract.MainActivity {
 
     private val presenter = MainPresenter(this)
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        makeCoffeeBtn.setOnClickListener { presenter.onMakeCoffeeClick() }
-
-        checkWaterBtn.setOnClickListener { presenter.onCheckWaterLevelClick() }
-
-        ChangeFilterBtn.setOnClickListener { presenter.onChangeFilterClick() }
-
-        clearMsgBtn.setOnClickListener { presenter.onClearMessageClick()}
-
+        setView()
+        setListeners()
+        presenter.getEvents()
     }
 
     override fun onDestroy() {
@@ -32,31 +31,32 @@ class MainActivity : AppCompatActivity(), MainContract.MainActivity {
         super.onDestroy()
     }
 
-    override fun showTextMessage(toastMsg: String) {
-        clearMsgBtn.visibility = Button.VISIBLE
-        buttonClickInformationTv.visibility = TextView.VISIBLE
-        buttonClickInformationTv.text = toastMsg
-        Toast.makeText(applicationContext, toastMsg, Toast.LENGTH_LONG ).show()
-    }
-    override fun hideTextMessage() {
-        clearMsgBtn.visibility = Button.GONE
-        buttonClickInformationTv.visibility = TextView.GONE
-        buttonClickInformationTv.text = ""
+    private fun setView() {
+        presenter.getEvents()
     }
 
-    override fun setButtonsEnable(enable: Boolean) {
-        checkWaterBtn.isEnabled = enable
-        makeCoffeeBtn.isEnabled = enable
-        ChangeFilterBtn.isEnabled = enable
+    private fun setListeners() {
+
     }
 
-
-    override fun getCoffeePotId(): Int {
-        coffeeIdEt.clearFocus()
-        return try {
-            coffeeIdEt.text.toString().toInt()
-        } catch (e: Exception){
-            0
+    override fun setList(list: Array<Event>) {
+        val eventsAdapter = EventsAdapter(list, object: EventsAdapter.OnEventClickListener {
+            override fun onClickEvent(event: Event) {
+                presenter.onSelectEvent(event)
+            }
+        } )
+        val lManager = LinearLayoutManager(this)
+        recyclerView = eventListRv.apply{
+            layoutManager = lManager
+            adapter = eventsAdapter
         }
+    }
+
+   override fun openEventDetailActivity(event: Event) {
+//       startActivity()
+   }
+
+    override fun setUserName(name: String?){
+
     }
 }

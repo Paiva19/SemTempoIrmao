@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:gravity="top"
         android:orientation="vertical"
         android:layout_height="match_parent">
@@ -22,125 +22,43 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="match_parent"
             android:layout_height="0dp">
+
         <LinearLayout
+                android:layout_marginStart="@dimen/horizontal_margin_medium"
+                android:layout_marginEnd="@dimen/horizontal_margin_medium"
+                android:layout_marginTop="@dimen/vertical_margin_medium"
+                android:layout_marginBottom="@dimen/vertical_margin_medium"
                 android:orientation="vertical"
                 android:gravity="top"
                 android:layout_width="match_parent" android:layout_height="wrap_content">
 
-            <ImageView
-                    android:id="@+id/mainIconIv"
-                    android:layout_width="@dimen/logo_size"
-                    android:layout_height="@dimen/logo_size"
-                    android:layout_gravity="center"
-                    android:padding="@dimen/logo_padding"
-                    android:src="@drawable/ic_app_logo"
-                    android:background="@drawable/ic_launcher_background"
-                    app:layout_constraintTop_toBottomOf="@id/toolbar"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="@dimen/vertical_margin_large"
-                    android:layout_marginBottom="@dimen/vertical_margin_large"/>
-<LinearLayout
-        android:layout_marginTop="@dimen/vertical_margin_small"
-        android:layout_marginBottom="@dimen/vertical_margin_small"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/horizontal_margin_medium"
-        android:layout_marginEnd="@dimen/horizontal_margin_medium">
-    <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/coffee_pot_id"
-            android:textColor="@color/colorBlack"
-    android:gravity="center"/>
-
-    <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/coffeeIdEt"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:inputType="numberDecimal"
-            android:maxLines="1"
-            android:textColorHighlight="@color/colorPrimary"
-            android:textColor="@color/colorBlack"
-            android:maxLength="5"
-            android:layout_height="wrap_content"/>
-</LinearLayout>
-
-
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/makeCoffeeBtn"
-                    app:layout_constraintTop_toBottomOf="@id/toolbar"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginStart="@dimen/horizontal_margin_small"
-                    android:layout_marginEnd="@dimen/horizontal_margin_small"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/make_coffee_action"
-                    android:gravity="center"/>
-            <LinearLayout
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    app:layout_constraintTop_toBottomOf="@id/mainIconIv"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:id="@+id/buttonsLl"
+            <TextView
+                    android:id="@+id/userNameTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/vertical_margin_medium"
-                    android:paddingBottom="@dimen/vertical_margin_medium"
-                    android:paddingStart="@dimen/horizontal_margin_small"
-                    android:paddingEnd="@dimen/horizontal_margin_small">
-
-
-                <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/checkWaterBtn"
-                        app:layout_constraintTop_toBottomOf="@id/makeCoffeeBtn"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="@string/check_water_level_action"/>
-
-                <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/ChangeFilterBtn"
-                        app:layout_constraintTop_toBottomOf="@id/toolbar"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_marginStart="@dimen/horizontal_margin_small"
-                        android:layout_marginEnd="@dimen/horizontal_margin_small"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="@string/reset_filter_action"
-                        android:gravity="center"/>
-            </LinearLayout>
+                    tools:text="Lucas"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_x_large"
+                    android:textAlignment="viewStart"/>
 
             <TextView
-                    android:id="@+id/buttonClickInformationTv"
-                    app:layout_constraintTop_toBottomOf="@id/buttonsLl"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_size_large"
-                    android:visibility="invisible"
+                    android:id="@+id/eventNameTv"
+                    android:textColor="@color/colorBlack"
+                    android:text="@string/events"
                     android:layout_marginTop="@dimen/vertical_margin_medium"
-                    android:layout_marginStart="@dimen/horizontal_margin_medium"
-                    android:layout_marginEnd="@dimen/horizontal_margin_medium"
-
+                    android:textSize="@dimen/text_size_large"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
-            <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/clearMsgBtn"
-                    app:layout_constraintTop_toBottomOf="@id/buttonClickInformationTv"
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/eventListRv"
+                    android:layout_marginTop="@dimen/vertical_margin_small"
+                    android:layout_marginStart="@dimen/horizontal_margin_small"
+                    android:layout_marginEnd="@dimen/horizontal_margin_small"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="invisible"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/clear_message_action"/>
+                    tools:listitem="@layout/event_item"/>
+
 
         </LinearLayout>
 
