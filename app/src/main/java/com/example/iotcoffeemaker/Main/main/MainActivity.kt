@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.iotcoffeemaker.Main.eventdetail.createEventDetailIntent
 import com.example.iotcoffeemaker.Main.models.Event
 import com.example.iotcoffeemaker.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity(), MainContract.MainActivity {
     }
 
    override fun openEventDetailActivity(event: Event) {
-//       startActivity()
+        startActivity(createEventDetailIntent(this, event.id))
    }
 
     override fun setUserName(name: String?){
