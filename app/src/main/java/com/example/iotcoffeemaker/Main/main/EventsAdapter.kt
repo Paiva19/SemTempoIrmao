@@ -8,9 +8,9 @@ import com.example.iotcoffeemaker.Main.models.Event
 import com.example.iotcoffeemaker.R
 import kotlinx.android.synthetic.main.event_item.view.*
 
-class EventsAdapter(private val items: Array<Event>, val onClickListener: OnEventClickListener) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
+class EventsAdapter(var items: Array<Event>, private val onClickListener: OnEventClickListener) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
-    public interface OnEventClickListener {
+    interface OnEventClickListener {
         fun onClickEvent(event: Event)
     }
 
@@ -19,6 +19,9 @@ class EventsAdapter(private val items: Array<Event>, val onClickListener: OnEven
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.view.run {
             this.eventItemNameTv.text = items[position].name
+            this.setOnClickListener {
+                onClickListener.onClickEvent(items[position])
+            }
         }
     }
 

@@ -1,14 +1,15 @@
 <resources>
-    <string name="app_name">IoT CoffeeMaker</string>
+    <string name="app_name">Sem Tempo, Irmão</string>
     <string name="action_settings">Settings</string>
 
+
+    <!--EVENTS LIST-->
     <string name="events">Eventos</string>
 
-    <string name="coffee_pot_id">ID da cafeteira:</string>
+    <!--ATTRACTIONS LIST-->
+    <string name="attractions">Atrações</string>
+    <string name="wait_time_min">%s min</string>
+    <string name="wait_time_hours">%s h</string>
 
-    <!--MAIN ACTIVITY-->
-    <string name="make_coffee_action">Fazer Café</string>
-    <string name="check_water_level_action">Checar Nível de Água</string>
-    <string name="reset_filter_action">Troca o filtro</string>
-    <string name="clear_message_action">Limpar mensagem</string>
+
 </resources>

@@ -1,10 +1,11 @@
 package com.example.iotcoffeemaker.Main.models
 
 class Attraction(
+    val attraction_id: String,
     val name: String,
-    val event: Event,
+    val eventId: String,
     val capacity: Int,
     val line_time: Int,
-    val is_waiting: Boolean = false
+    var is_waiting: Boolean = false
 )
 

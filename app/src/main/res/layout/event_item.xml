@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<Button
+        android:id="@+id/eventItemNameTv"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="@drawable/bg_black_stroke"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/eventItemLl"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/vertical_margin_small"
         android:layout_marginBottom="@dimen/vertical_margin_small"
-        android:padding="@dimen/minimal_padding">
-
-    <TextView
-            android:id="@+id/eventItemNameTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/colorBlack"
-            tools:text="Nome Evento"
-            android:textSize="@dimen/text_size_large"/>
-
-</LinearLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_black_stroke"
+        android:layout_gravity="center"
+        android:textColor="@color/colorBlack"
+        android:textAllCaps="false"
+        tools:text="Nome Evento"
+        android:padding="@dimen/minimal_padding"
+        android:textSize="@dimen/text_size_large"/>

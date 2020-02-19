@@ -13,5 +13,4 @@ interface MainContract {
         fun getEvents()
         fun onSelectEvent(event: Event)
     }
-
 }
